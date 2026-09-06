@@ -1,0 +1,25 @@
+node_modules/
+out/
+.test-out/
+.backup-before-codex/
+*.tsbuildinfo
+.DS_Store
+release/
+.claude/
+.codex/
+.openai/
+docs/superpowers/
+find-desktop.ps1
+.env
+.env.*
+!.env.example
+*.log
+*.jsonl
+*.db
+*.db-*
+*.sqlite*
+*.lnk
+Thumbs.db
+__MACOSX/
+# Local CI template; publishing requires GitHub workflow scope.
+.github/workflows/ci.yml

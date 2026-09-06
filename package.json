@@ -1,0 +1,50 @@
+{
+  "name": "ai-companion",
+  "version": "1.0.0",
+  "description": "A local desktop companion for Codex and Claude: usage analytics, a floating widget, and input alerts.",
+  "productName": "AI Companion",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev --watch",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron-vite preview",
+    "dist:win": "npm run build && electron-builder --win nsis zip --x64 --publish never",
+    "test": "node scripts/test.cjs",
+    "typecheck": "tsc --noEmit -p tsconfig.check.json",
+    "test:ui": "node scripts/smoke.cjs",
+    "test:mini": "node scripts/smoke.cjs --mini"
+  },
+  "keywords": [
+    "codex",
+    "claude",
+    "companion",
+    "usage",
+    "electron"
+  ],
+  "author": "AI Companion contributors",
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "date-fns": "^4.1.0",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.5.0",
+    "electron": "^41.10.7",
+    "electron-builder": "^26.16.0",
+    "electron-vite": "^5.0.0",
+    "postcss": "^8.5.10",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^6.0.2",
+    "vite": "^7.3.2"
+  }
+}

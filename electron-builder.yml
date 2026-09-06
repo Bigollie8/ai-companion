@@ -1,0 +1,27 @@
+appId: io.github.bigollie8.ai-companion
+productName: AI Companion
+directories:
+  output: release
+  buildResources: build
+files:
+  - out/**/*
+  - package.json
+  - LICENSE
+asar: true
+npmRebuild: false
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: zip
+      arch: [x64]
+  artifactName: AI-Companion-${version}-Windows-${arch}.${ext}
+nsis:
+  artifactName: AI-Companion-${version}-Setup-${arch}.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  shortcutName: AI Companion
+  deleteAppDataOnUninstall: false

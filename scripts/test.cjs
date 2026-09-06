@@ -1,0 +1,7 @@
+const { buildSync } = require('esbuild')
+const { spawnSync } = require('child_process')
+const path = require('path')
+const root = path.resolve(__dirname, '..')
+buildSync({ entryPoints: [path.join(root, 'tests/usage.test.ts')], outfile: path.join(root, '.test-out/usage.test.cjs'), bundle: true, platform: 'node', format: 'cjs' })
+const result = spawnSync(process.execPath, ['--test', path.join(root, '.test-out/usage.test.cjs')], { stdio: 'inherit' })
+process.exit(result.status ?? 1)
