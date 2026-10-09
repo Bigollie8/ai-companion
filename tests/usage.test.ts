@@ -3,12 +3,12 @@ import assert from 'node:assert/strict'
 import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve, sep, basename } from 'node:path'
-import { parseCodexText, parseAllCodexSessions, normalizeCodexUsage } from '../src/main/parser/codex'
-import { parseJsonlFile } from '../src/main/parser/conversations'
-import { aggregateSessions } from '../src/main/parser/aggregator'
-import { exportSessionsCSV } from '../src/main/csv'
-import { calculateCost } from '../src/main/pricing'
-import { parseChatAttention } from '../src/main/parser/attention'
+import { parseCodexText, parseAllCodexSessions, normalizeCodexUsage } from './reference/parser/codex'
+import { parseJsonlFile } from './reference/parser/conversations'
+import { aggregateSessions } from './reference/parser/aggregator'
+import { exportSessionsCSV } from './reference/csv'
+import { calculateCost } from './reference/pricing'
+import { parseChatAttention } from './reference/parser/attention'
 const removeFixture = (dir: string) => {
   assert.ok(resolve(dir).startsWith(resolve(tmpdir()) + sep) && basename(dir).startsWith('usage-'))
   rmSync(dir, { recursive: true, force: true })
@@ -132,8 +132,8 @@ test('Standard rates handle Astra long context and unknown models explicitly', (
 })
 
 // Historical recovery must not depend on the retention window of transcript files.
-import { parseHistory } from '../src/main/parser/history'
-import { recoverClaudeHistory, parseClaudeArchive, parseDesktopHistory, claudeDesktopSessionRoots } from '../src/main/parser/claudeArchive'
+import { parseHistory } from './reference/parser/history'
+import { recoverClaudeHistory, parseClaudeArchive, parseDesktopHistory, claudeDesktopSessionRoots } from './reference/parser/claudeArchive'
 
 test('January history remains visible when only September transcripts survive, with no duplicate IDs', () => {
   const dir = mkdtempSync(join(tmpdir(), 'usage-history-'))

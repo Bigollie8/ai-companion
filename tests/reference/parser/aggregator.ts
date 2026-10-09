@@ -319,7 +319,8 @@ export function aggregateAllData(): DashboardData {
     ...aggregateSessions([...claude, ...codex.sessions], metaLookup),
     claudeArchive,
     providers: { claude: { ...aggregateSessions(claude, metaLookup), claudeArchive }, codex: aggregateSessions(codex.sessions) },
-    codexLimits: codex.limits
+    codexLimits: codex.limits,
+    claudeLimits: null
   }
 }
 

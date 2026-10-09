@@ -48,34 +48,34 @@ export function TokenChart({ dailyMetrics }: Props) {
       <div className="text-[10px] uppercase tracking-wider text-gray-500 mb-2 font-medium">
         Token Usage (14d)
       </div>
-      <div className="h-48">
+      <div className="h-48 token-chart">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
             <defs>
               <linearGradient id="tokenGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#6c8cff" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#6c8cff" stopOpacity={0} />
+                <stop offset="5%" stopColor="var(--accent)" stopOpacity={0.3} />
+                <stop offset="95%" stopColor="var(--accent)" stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis
               dataKey="date"
-              tick={{ fill: '#6b7280', fontSize: 10 }}
+              tick={{ fill: 'var(--faint)', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
             />
             <YAxis
-              tick={{ fill: '#6b7280', fontSize: 10 }}
+              tick={{ fill: 'var(--faint)', fontSize: 10 }}
               axisLine={false}
               tickLine={false}
               tickFormatter={(v) => formatTokenCount(v)}
             />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#1a1d27',
-                border: '1px solid #2a2d3a',
+                backgroundColor: 'var(--raised)',
+                border: '1px solid var(--line)',
                 borderRadius: 8,
                 fontSize: 11,
-                color: '#e5e7eb'
+                color: 'var(--text)'
               }}
               formatter={(raw, name) => {
                 const value = Number(raw) || 0
@@ -87,7 +87,7 @@ export function TokenChart({ dailyMetrics }: Props) {
             <Area
               type="monotone"
               dataKey="tokens"
-              stroke="#6c8cff"
+              stroke="var(--accent)"
               strokeWidth={2}
               isAnimationActive={false}
               fill="url(#tokenGrad)"

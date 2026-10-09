@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState
 } from 'react'
+import { savePreferences } from './desktop'
 
 const STORAGE_KEY = 'dashboard.hiddenProjects'
 export const HIDDEN_LABEL = 'Hidden Project'
@@ -40,6 +41,7 @@ export function PrivacyProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(hidden)))
+      savePreferences()
     } catch {
       /* ignore quota/security errors */
     }

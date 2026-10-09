@@ -23,3 +23,7 @@ Thumbs.db
 __MACOSX/
 # Local CI template; publishing requires GitHub workflow scope.
 .github/workflows/ci.yml
+
+dist/
+src-tauri/target/
+src-tauri/gen/

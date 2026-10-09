@@ -123,6 +123,7 @@ export interface CodexLimits {
 export interface DashboardData extends DashboardSnapshot {
   providers: Record<'claude' | 'codex', DashboardSnapshot>
   codexLimits: CodexLimits | null
+  claudeLimits: CodexLimits | null
 }
 
 // Raw record types from Claude's JSONL files

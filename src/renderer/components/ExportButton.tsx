@@ -1,3 +1,4 @@
+import { desktop } from '../lib/desktop'
 import React, { useState } from 'react'
 import type { DashboardSnapshot } from '../lib/types'
 import { formatTokenCount, formatCost, formatDuration, totalTokens } from '../lib/formatters'
@@ -17,7 +18,7 @@ export function ExportButton({ data, provider = 'all' }: Props) {
     setExporting(true)
     setStatus('')
     try {
-      const api = (window as any).electronAPI
+      const api = desktop
       if (!api?.exportCSV) return
 
       const csv = await api.exportCSV(

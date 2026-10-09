@@ -46,12 +46,7 @@ export function ActivityTimeline({ sessions }: Props) {
           const leftPct = ((start - todayStart) / (todayEnd - todayStart)) * 100
           const widthPct = Math.max(((end - start) / (todayEnd - todayStart)) * 100, 0.5)
 
-          const color =
-            s.provider === 'codex' ? '#8ad6b8' : s.model.includes('opus')
-              ? '#a78bfa'
-              : s.model.includes('haiku')
-                ? '#4ade80'
-                : '#6c8cff'
+          const color = s.provider === 'codex' ? 'var(--codex)' : 'var(--claude)'
 
           return (
             <div
@@ -81,16 +76,8 @@ export function ActivityTimeline({ sessions }: Props) {
 
       {/* Legend */}
       <div className="flex gap-3 mt-2 text-[9px] text-gray-500">
-        <span className="flex items-center gap-1">
-          <span className="w-2 h-2 rounded-full bg-accent-blue" /> Sonnet / other
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2 h-2 rounded-full bg-accent-purple" /> Opus
-        </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2 h-2 rounded-full bg-accent-green" /> Haiku
-        </span>
-        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full" style={{ background: '#8ad6b8' }} /> Codex</span>
+        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-accent-orange" /> Claude</span>
+        <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-accent-green" /> Codex</span>
       </div>
       <p className="text-[9px] text-gray-600 mt-2">Session spans include idle gaps.</p>
     </div>

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AI Companion",
+  "version": "1.0.0",
+  "identifier": "io.github.bigollie8.ai-companion",
+  "build": {
+    "beforeDevCommand": "npm run dev:ui",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build:ui",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{
+      "label": "main", "title": "AI Companion", "width": 1140, "height": 900,
+      "minWidth": 360, "minHeight": 360, "decorations": false,
+      "transparent": true, "shadow": false, "visible": false
+    }],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: data: blob:; font-src 'self' data:; connect-src ipc: http://ipc.localhost; object-src 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true, "targets": ["nsis"],
+    "icon": ["../build/icon.ico", "../build/icon.png"],
+    "shortDescription": "Local AI usage dashboard for Codex and Claude"
+  }
+}

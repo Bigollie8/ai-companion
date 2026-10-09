@@ -2,7 +2,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import type { DashboardSnapshot, TokenUsage, SessionSummary } from '../lib/types'
 
-interface LiveMetrics {
+export interface LiveMetrics {
   todaySessions: SessionSummary[]
   todaySessionCount: number
   todayTokens: TokenUsage
