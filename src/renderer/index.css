@@ -80,7 +80,7 @@ button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px s
 .desktop-error { margin: 0; padding: 8px 20px; background: var(--attention-fill); color: var(--claude); font-size: 12px; }
 
 /* Now / Then */
-.workspace { flex: 1; min-height: 0; display: flex; flex-wrap: wrap; }
+.workspace { flex: 1; min-height: 0; display: flex; }
 .now { flex: 1 1 340px; max-width: 380px; min-width: 0; overflow: auto; padding: 22px 24px; border-right: 1px solid var(--line); background: var(--pane); display: flex; flex-direction: column; gap: 22px; }
 .now-label { display: flex; justify-content: space-between; align-items: baseline; }
 .now-label em { font-style: normal; font-size: 10px; color: var(--faint); }
